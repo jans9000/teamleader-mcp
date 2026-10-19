@@ -186,7 +186,7 @@ TEAMLEADER_REFRESH_TOKEN=your_refresh_token
 
 ## Tools
 
-This server provides **42 tools** across all major Teamleader Focus features:
+This server provides **43 tools** across all major Teamleader Focus features:
 
 ### Companies (4 tools)
 | Tool | Description |
@@ -268,6 +268,17 @@ This server provides **42 tools** across all major Teamleader Focus features:
 | `teamleader_email_track` | Log an email |
 
 ---
+
+### Generic API call (any endpoint)
+
+`teamleader_api_call` calls any Teamleader Focus method that has no dedicated tool, e.g. `dealPhases.list`, `users.list`, `tickets.list`, `projects-v2.projects.list`, `contacts.update`. Pass the method name from the [API reference](https://developer.focus.teamleader.eu/) and the JSON body as `params`:
+
+```bash
+mcporter call teamleader.teamleader_api_call method=dealPhases.list
+mcporter call teamleader.teamleader_api_call method=tickets.list params='{"page":{"size":50}}'
+```
+
+It reuses the server's OAuth token and automatic refresh. Set `TEAMLEADER_RAW_READONLY=true` to restrict it to read-only methods (`*.list`, `*.info`, `*.download`, `*.me`, `*.search`).
 
 ## Examples
 

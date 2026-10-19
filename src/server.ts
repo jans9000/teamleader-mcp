@@ -26,6 +26,7 @@ import * as quotations from './tools/quotations.js';
 import * as products from './tools/products.js';
 import * as timetracking from './tools/timetracking.js';
 import * as email from './tools/email.js';
+import * as raw from './tools/raw.js';
 
 // Tool definitions
 const TOOLS = [
@@ -630,6 +631,28 @@ const TOOLS = [
       required: ['subject_type', 'subject_id'],
     },
   },
+
+  // ============================================================================
+  // GENERIC PASSTHROUGH
+  // ============================================================================
+  {
+    name: 'teamleader_api_call',
+    description:
+      'Call ANY Teamleader Focus API method directly. Use this only when no dedicated teamleader_* tool covers the need ' +
+      '(e.g. dealPhases.list, users.list, departments.list, projects-v2.projects.list, tickets.list, workTypes.list, ' +
+      'customFieldDefinitions.list, tasks.list, subscriptions.list, creditNotes.list, contacts.update). ' +
+      'Pass the method name exactly as in the API reference (https://developer.focus.teamleader.eu) and the JSON body as params. ' +
+      'List methods accept params like {"filter": {...}, "page": {"size": 100, "number": 1}, "sort": [{"field": "...", "order": "desc"}]}. ' +
+      'Write methods (add, update, delete, move, ...) change real data: confirm with the user before calling them.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        method: { type: 'string', description: 'API method, e.g. "dealPhases.list", "users.me", "contacts.update"' },
+        params: { type: 'object', description: 'JSON request body for the method (omit or {} if none)' },
+      },
+      required: ['method'],
+    },
+  },
 ];
 
 /**
@@ -1027,6 +1050,15 @@ export function createServer(
           return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
         }
         
+        // =====================================================================
+        // GENERIC PASSTHROUGH
+        // =====================================================================
+        case 'teamleader_api_call': {
+          const input = args as raw.RawCallInput;
+          const result = await raw.callRaw(client, input);
+          return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+        }
+
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${name}`);
       }
