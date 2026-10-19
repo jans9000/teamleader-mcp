@@ -27,6 +27,7 @@ import * as products from './tools/products.js';
 import * as timetracking from './tools/timetracking.js';
 import * as email from './tools/email.js';
 import * as raw from './tools/raw.js';
+import { VERSION } from './version.js';
 
 // Tool definitions
 const TOOLS = [
@@ -669,8 +670,8 @@ export function createServer(
     {
       name: 'teamleader-mcp',
       title: 'Teamleader Focus',
-      version: '1.0.3',
-      websiteUrl: 'https://github.com/Weichie-com/teamleader-mcp',
+      version: VERSION,
+      websiteUrl: 'https://github.com/jans9000/teamleader-mcp',
       icons: [
         {
           src: 'https://focus.teamleader.eu/favicon.ico',

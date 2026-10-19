@@ -1,7 +1,7 @@
 {
-  "name": "teamleader-mcp",
+  "name": "@sensolus/teamleader-mcp",
   "version": "1.0.4",
-  "description": "MCP server for Teamleader Focus API - Calendar, Contacts, and more",
+  "description": "Unofficial fork of Weichie's teamleader-mcp: MCP server for the Teamleader Focus API (calendar, contacts, deals, invoices and more)",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -37,18 +37,24 @@
     "claude",
     "ai"
   ],
-  "author": "Weichie.com",
+  "author": "Jan De Moerloose",
+  "contributors": [
+    "Weichie.com (original author, https://github.com/Weichie-com/teamleader-mcp)"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Weichie-com/teamleader-mcp.git"
+    "url": "git+https://github.com/jans9000/teamleader-mcp.git"
   },
-  "homepage": "https://github.com/Weichie-com/teamleader-mcp#readme",
+  "homepage": "https://github.com/jans9000/teamleader-mcp#readme",
   "bugs": {
-    "url": "https://github.com/Weichie-com/teamleader-mcp/issues"
+    "url": "https://github.com/jans9000/teamleader-mcp/issues"
   },
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",

@@ -14,6 +14,7 @@ import * as path from 'path';
 import * as readline from 'readline';
 import { getAuthorizationUrl, type OAuthConfig } from './auth/oauth.js';
 import { startAuthServer } from './auth/auth-server.js';
+import { VERSION } from './version.js';
 
 const CONFIG_DIR = path.join(process.env.HOME || process.env.USERPROFILE || '/tmp', '.teamleader-mcp');
 const CREDENTIALS_FILE = path.join(CONFIG_DIR, 'credentials.json');
@@ -198,7 +199,7 @@ const program = new Command();
 program
   .name('teamleader-mcp')
   .description('Teamleader Focus MCP - CLI tools')
-  .version('1.0.0');
+  .version(VERSION);
 
 // Auth command group
 const auth = program

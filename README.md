@@ -18,12 +18,16 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/teamleader-mcp"><img src="https://img.shields.io/npm/v/teamleader-mcp" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/@sensolus/teamleader-mcp"><img src="https://img.shields.io/npm/v/@sensolus/teamleader-mcp" alt="npm version"></a>
   <img src="https://img.shields.io/badge/tools-42-blue" alt="42 Tools">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License">
   <img src="https://img.shields.io/badge/MCP-compatible-purple" alt="MCP Compatible">
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
 </p>
+
+> **Unofficial fork.** This is `@sensolus/teamleader-mcp`, a fork of [Weichie-com/teamleader-mcp](https://github.com/Weichie-com/teamleader-mcp) by [Weichie](https://weichie.com).
+> All credit for the original work goes to them. This fork is not affiliated with or endorsed by Weichie or Teamleader.
+> Please report issues with this fork at [jans9000/teamleader-mcp](https://github.com/jans9000/teamleader-mcp/issues).
 
 ---
 
@@ -93,7 +97,7 @@ A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that c
 ### 1. Authenticate with Teamleader
 
 ```bash
-npx teamleader-mcp auth
+npx @sensolus/teamleader-mcp auth
 ```
 
 This opens a browser for OAuth login. Your credentials are saved automatically.
@@ -107,7 +111,7 @@ Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_
   "mcpServers": {
     "teamleader": {
       "command": "npx",
-      "args": ["-y", "teamleader-mcp"]
+      "args": ["-y", "@sensolus/teamleader-mcp"]
     }
   }
 }
@@ -129,19 +133,19 @@ Restart Claude Desktop and ask: *"What Teamleader tools do you have access to?"*
 ### Via npx (Recommended)
 No installation needed - runs directly:
 ```bash
-npx teamleader-mcp auth    # One-time OAuth setup
-npx teamleader-mcp          # Start the MCP server
+npx @sensolus/teamleader-mcp auth    # One-time OAuth setup
+npx @sensolus/teamleader-mcp          # Start the MCP server
 ```
 
 ### Global Install
 ```bash
-npm install -g teamleader-mcp
+npm install -g @sensolus/teamleader-mcp
 teamleader-mcp auth
 ```
 
 ### From Source
 ```bash
-git clone https://github.com/Weichie-com/teamleader-mcp.git
+git clone https://github.com/jans9000/teamleader-mcp.git
 cd teamleader-mcp
 npm install
 npm run build
@@ -465,5 +469,5 @@ Built with ❤️ using the [Model Context Protocol](https://modelcontextprotoco
 ---
 
 <p align="center">
-  <sub>Made by <a href="https://weichie.com">Weichie</a> • Star ⭐ if you find this useful!</sub>
+  <sub>Originally made by <a href="https://weichie.com">Weichie</a> • Unofficial fork maintained by <a href="https://github.com/jans9000">jans9000</a></sub>
 </p>
